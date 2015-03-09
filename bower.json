@@ -1,0 +1,11 @@
+{
+    "name": "product",
+    "version": "0.0.0",
+    "devDependencies": {
+        "bootstrap-sass": "https://github.com/twbs/bootstrap-sass.git",
+        "OwlCarousel2": "https://github.com/smashingboxes/OwlCarousel2.git",
+        "superfish": "https://github.com/joeldbirch/superfish.git",
+        "animate-css": "https://github.com/daneden/animate.css.git",
+        "normalize-css": "https://github.com/necolas/normalize.css.git"
+    }
+}
