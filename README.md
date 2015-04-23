@@ -13,6 +13,8 @@ First of all you have to do this.
 3. npm start  
 ```
 
+Usually work at source/css/style.css for css file.
+
 To make sprite image:  
 ``gulp sprite``  
 then, to concatenate with style.css:  
