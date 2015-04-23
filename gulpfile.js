@@ -48,8 +48,8 @@ gulp.task('server', function() {
 gulp.task('preCopy', function() {
     gulp.src('./bower_components/animate-css/animate.css')
     .pipe(gulp.dest(path.srcCss));
-    gulp.src('./bower_components/bootstrap-sass/assets/fonts/bootstrap/*')
-    .pipe(gulp.dest(path.dest + 'fonts/'));
+//    gulp.src('./bower_components/bootstrap-sass/assets/fonts/bootstrap/*')
+//    .pipe(gulp.dest(path.dest + 'fonts/'));
     gulp.src('./bower_components/normalize-css/normalize.css')
     .pipe(gulp.dest(path.srcCss));
     gulp.src('./bower_components/OwlCarousel2/dist/assets/owl.carousel.css')
@@ -70,17 +70,17 @@ gulp.task('preCopy', function() {
 gulp.task('preConcatCss', function() {
     gulp.src([
         path.srcCss + 'normalize.css',
-        path.srcCss + 'basic.css',
-        path.srcCss + 'animate.css',
-        path.srcCss + 'owl.carousel.css',
-        path.srcCss + 'owl.theme.default.css',
-        path.srcCss + 'superfish.css'
+        path.srcCss + 'basic.css'
+//        path.srcCss + 'animate.css',
+//        path.srcCss + 'owl.carousel.css',
+//        path.srcCss + 'owl.theme.default.css',
+//        path.srcCss + 'superfish.css'
     ])
     .pipe(concat('style.css'))
     .pipe(gulp.dest(path.srcCss));
 });
 
-// post css
+// post css 通常は source/css/style.css で作業
 gulp.task('postCss', function(){
     return gulp.src(path.srcCss + 'style.css')
     .pipe(postcss([ autoprefixer({ browsers: ['last 2 version'] }) ]))
@@ -123,17 +123,18 @@ gulp.task('postSprite', function() {
 });
 
 // アイコンフォント作成
+var fontName = 'iconfont';
 gulp.task('iconfont', function(){
     gulp.src([path.srcSvg + '*.svg'])
     .pipe(iconfont({
-        fontName: 'iconfont',
+        fontName: fontName,
         normalize: true
     }))
     .on('codepoints', function(codepoints, options) {
         gulp.src(path.srcCss + 'iconfont/iconfont.css')
-        .pipe(consolidate('lodash', {
+        .pipe(consolidate('underscore', {
             glyphs: codepoints,
-            fontName: 'iconfont',
+            fontName: fontName,
             fontPath: '../fonts/',
             className: 'iconfont'
         }))

@@ -1,7 +1,7 @@
 @font-face {
   font-family: "<%= fontName %>";
   src: url('<%= fontPath %><%= fontName %>.eot');
-  src: url('<%= fontPath %><%= fontName %>.eot?#iefix') format('eot'),
+  src: url('<%= fontPath %><%= fontName %>.eot?#iefix') format('embedded-opentype'),
     url('<%= fontPath %><%= fontName %>.woff') format('woff'),
     url('<%= fontPath %><%= fontName %>.ttf') format('truetype'),
     url('<%= fontPath %><%= fontName %>.svg#<%= fontName %>') format('svg');
@@ -10,15 +10,20 @@
 }
 
 <%= glyphs.map(function(glyph){ return '.' + className + '-' + glyph.name + ':before' }).join(',\n') %> {
+  position: relative;
+  top: -.1em;
   font-family: "<%= fontName %>";
+  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  -webkit-font-smoothing: antialiased;
+  vertical-align: middle;
   display: inline-block;
   text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 <% _.each(glyphs, function(glyph) { %>.<%= className %>-<%= glyph.name %>:before { content: "\<%= glyph.codepoint.toString(16).toUpperCase() %>" }

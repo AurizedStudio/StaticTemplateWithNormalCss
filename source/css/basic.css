@@ -12,13 +12,13 @@
 
 html {
     font-size: 10px;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0,0,0,.4);
 }
 
 body {
     font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
     font-size: 14px;
-    line-height: 1.42857;
+    line-height: 1.428571429;
     color: #333333;
     background-color: #fff;
 }
@@ -50,6 +50,13 @@ figure {
 img {
     vertical-align: middle;
 }
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eeeeee;
+}
+
 /**
  * コメント
  */
@@ -71,29 +78,9 @@ img {
   max-width: 100%;
   height: auto;
 }
-.img-thumbnail {
-  padding: 4px;
-  line-height: 1.42857;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  transition: all 0.2s ease-in-out;
-  display: inline-block;
-  max-width: 100%;
-  height: auto;
-}
-
 .img-circle {
   border-radius: 50%;
 }
-
-hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 0;
-  border-top: 1px solid #eeeeee;
-}
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -104,7 +91,6 @@ hr {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-
 .sr-only-focusable:active, .sr-only-focusable:focus {
   position: static;
   width: auto;
@@ -113,8 +99,9 @@ hr {
   overflow: visible;
   clip: auto;
 }
-
-
+[role="button"] {
+  cursor: pointer;
+}
 
 /* プリント設定 */
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
@@ -127,87 +114,51 @@ hr {
     box-shadow: none !important;
     text-shadow: none !important;
   }
-
   a,
   a:visited {
     text-decoration: underline;
   }
-
   a[href]:after {
     content: " (" attr(href) ")";
   }
-
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
-
   a[href^="#"]:after,
   a[href^="javascript:"]:after {
     content: "";
   }
-
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
-
   thead {
     display: table-header-group;
   }
-
   tr,
   img {
     page-break-inside: avoid;
   }
-
   img {
     max-width: 100% !important;
   }
-
   p,
   h2,
   h3 {
     orphans: 3;
     widows: 3;
   }
-
   h2,
   h3 {
     page-break-after: avoid;
   }
-
   select {
     background: #fff !important;
   }
-
-  .navbar {
-    display: none;
-  }
-
-  .btn > .caret,
-  .dropup > .btn > .caret {
-    border-top-color: #000 !important;
-  }
-
-  .label {
-    border: 1px solid #000;
-  }
-
-  .table {
-    border-collapse: collapse !important;
-  }
-  .table td,
-  .table th {
-    background-color: #fff !important;
-  }
-
-  .table-bordered th,
-  .table-bordered td {
-    border: 1px solid #ddd !important;
-  }
 }
-/* フォント設定 */
+
+/* フォント設定 from bootstrap3.3.4 */
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url("../fonts/glyphicons-halflings-regular.eot");
@@ -215,12 +166,13 @@ hr {
 }
 .glyphicon {
   position: relative;
-  top: 1px;
+  top: -.1em;
   display: inline-block;
   font-family: 'Glyphicons Halflings';
   font-style: normal;
   font-weight: normal;
   line-height: 1;
+  vertical-align: middle;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -1126,11 +1078,27 @@ hr {
   content: "\e227";
 }
 
+.glyphicon-btc:before {
+  content: "\e227";
+}
+
+.glyphicon-xbt:before {
+  content: "\e227";
+}
+
 .glyphicon-yen:before {
   content: "\00a5";
 }
 
+.glyphicon-jpy:before {
+  content: "\00a5";
+}
+
 .glyphicon-ruble:before {
+  content: "\20bd";
+}
+
+.glyphicon-rub:before {
   content: "\20bd";
 }
 
